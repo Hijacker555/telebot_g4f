@@ -1,2 +1,2 @@
 # telebot_g4f
-GPT-4-based telebot
+GPT-4 based telebot
