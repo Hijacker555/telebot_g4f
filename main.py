@@ -99,11 +99,15 @@ async def init_db_pool():
     db_pool = await create_db_pool()
     return db_pool
 
+def read_token_from_file(file_path):
+    with open(file_path, 'r') as file:
+        return file.read().strip()
 
 
 async def main() -> None:
     """Run the bot."""
-    application = Application.builder().token("6723546111:AAGKqD7uw2BCtX5oo1iFuTqB6qbRRrv4Oc0").build()
+    token = read_token_from_file("token.txt")
+    application = Application.builder().token(token).build()
     
     # Добавляем обработчики
     start_handler = CommandHandler("start", start)
